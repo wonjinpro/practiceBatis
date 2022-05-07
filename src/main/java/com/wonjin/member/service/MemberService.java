@@ -1,5 +1,8 @@
 package com.wonjin.member.service;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,5 +34,20 @@ public class MemberService {
 	public int deleteMember(Member m) {
 		
 		return dao.deleteMember(m);
+	}
+
+	public Member searchOneMember(Member m) {
+		
+		return dao.getOneMember(m);
+	}
+
+	public ArrayList<Member> searchMemberId(String keyword) {
+		// TODO Auto-generated method stub
+		return dao.searchMemberId(keyword);
+	}
+
+	public ArrayList<Member> getIdorName(HashMap<String, Object> map) {
+		// TODO Auto-generated method stub
+		return dao.getIdOrName(map);
 	}
 }

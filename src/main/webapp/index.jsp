@@ -39,7 +39,31 @@
 			
 		</c:otherwise>
 	</c:choose>
-		
+	
+	<h2>조회하기</h2>
+	<form action="searchOneId.com" method="post">
+		<span><input type="text" name="memberId">
+			<button type="submit">회원조회하기</button>		
+		</span>
+	</form>
+	
+	<h2>여러명 조회하기</h2>
+	<form action="searchMemberId.com" method="post">
+		<span>
+			<input type="text" name="keyword">
+			<button type="submit">키워드로 검색하기</button>
+		</span>
+	</form>
+	
+	<h3>아이디나 이름으로 조회하기</h3>
+	<form action="idOrName.com">
+		<div>아이디 : <input type="text" name="memberId"></div>
+		<div>이름 : <input type="text" name="memberName"></div>
+		<button>검색</button>
+	</form>
+	<h3>선택해서 조회하기</h3>
+	<form action="selectMembers"></form>
+	
 	
 	
 	

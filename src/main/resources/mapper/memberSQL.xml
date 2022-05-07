@@ -9,8 +9,15 @@
 			member_no as memberNo,
 			email,
 			phone
-			from member_tbl where member_id=#{memberId} and member_pw=#{memberPw}
-	
+			from member_tbl
+			<choose>
+				<when test="memberPw!=null">
+				 	where member_id=#{memberId} and member_pw=#{memberPw}
+				</when>
+				<otherwise>
+				 	where member_id=#{memberId}
+				</otherwise>
+			</choose>
 	</select>
 	<insert id="signUpMember" parameterType="m">
 	
@@ -23,4 +30,36 @@
 	<delete id="deleteMember" parameterType="m">
 		delete from member_tbl where member_no=#{memberNo}
 	</delete>
+	<select id="searchMemberId" parameterType="String" resultType="m">
+		select 
+			member_no as memberNo,
+			member_id as memberId,
+			member_pw as memberPw,
+			member_name as memberName,
+			phone,
+			email
+			from member_tbl where member_id like '%'||#{keyword}||'%'
+	
+	</select>
+	
+	<select id="idOrName" parameterType="map" resultType="m" >
+		select 
+			member_no as memberNo,
+			member_id as memberId,
+			member_pw as memberPw,
+			member_Name as memberName,
+			email,
+			phone
+			from member_tbl
+			<trim prefix="where" prefixOverrides="and">
+				<if test="!memberId.equals('')">
+					member_Id like '%'||#{memberId}||'%' 
+				</if>
+				<if test="!memberName.equals('')">
+					and member_Name like '%'||#{memberName}||'%'
+				</if>
+			</trim>
+			
+	
+	</select>
 </mapper>

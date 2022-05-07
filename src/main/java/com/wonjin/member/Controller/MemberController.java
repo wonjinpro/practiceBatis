@@ -1,5 +1,8 @@
 package com.wonjin.member.Controller;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -85,4 +88,41 @@ public class MemberController {
 		}
 		
 	}
+	
+	@RequestMapping(value="searchOneId.com")
+	public String searchOneId(Member m, Model model) {
+		Member member =service.searchOneMember(m);
+		if(member!=null) {
+		model.addAttribute("m",member);
+		return"member/searchOneMember";
+		}else {
+			return "redirect:/";
+		}
+		
+	}
+	@RequestMapping(value="searchMemberId.com")
+	public String searchMemberId(String keyword, Model model) {
+		System.out.println(keyword);
+		ArrayList<Member> list = service.searchMemberId(keyword);
+		
+		if(list!=null) {
+			model.addAttribute("list", list);
+			return "member/searchMemberId";	
+		}else {
+			return "redirect:/";
+		}
+		
+	}
+	@RequestMapping(value="idOrName.com")
+	public String idOrName(Member m, Model model) {
+		HashMap<String,Object> map = new HashMap<String,Object>();
+		map.put("memberId", m.getMemberId());
+		map.put("memberName",m.getMemberName());
+		
+		ArrayList<Member> list= service.getIdorName(map);
+		model.addAttribute("list",list);
+		
+		return "member/IdOrName";
+	}
+	
 }
