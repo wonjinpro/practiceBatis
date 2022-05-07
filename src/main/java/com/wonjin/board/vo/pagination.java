@@ -1,20 +1,19 @@
 package com.wonjin.board.vo;
 
+import java.util.ArrayList;
+
 import org.springframework.stereotype.Component;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
-@NoArgsConstructor
 @AllArgsConstructor
 @Component
-public class FileVO {
+@Data
+@NoArgsConstructor
+public class pagination {
 	
-	
-	private int fileNo;
-	private int boardNo;
-	private String fileName;
-	private String filePath;
+	private ArrayList<Board> list;
+	private String pagination;
 }

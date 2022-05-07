@@ -6,6 +6,7 @@ import java.util.HashMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.wonjin.board.vo.Board;
 import com.wonjin.member.dao.MemberDao;
 import com.wonjin.memberVo.Member;
 
@@ -60,4 +61,6 @@ public class MemberService {
 		// TODO Auto-generated method stub
 		return dao.getMemberList(memberId);
 	}
+
+
 }
