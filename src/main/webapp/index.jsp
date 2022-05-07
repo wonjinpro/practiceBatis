@@ -62,7 +62,10 @@
 		<button>검색</button>
 	</form>
 	<h3>선택해서 조회하기</h3>
-	<form action="selectMembers"></form>
+	<a href="searchMember3Frm.com">선택해서 조회하기</a>
+	
+	
+	
 	
 	
 	

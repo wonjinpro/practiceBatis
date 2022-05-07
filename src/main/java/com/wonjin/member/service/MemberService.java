@@ -50,4 +50,14 @@ public class MemberService {
 		// TODO Auto-generated method stub
 		return dao.getIdOrName(map);
 	}
+
+	public ArrayList<Member> searchMember() {
+		// TODO Auto-generated method stub
+		return dao.searchMember();
+	}
+
+	public ArrayList<Member> getMemberList(String[] memberId) {
+		// TODO Auto-generated method stub
+		return dao.getMemberList(memberId);
+	}
 }

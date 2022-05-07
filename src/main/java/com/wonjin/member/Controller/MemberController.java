@@ -124,5 +124,24 @@ public class MemberController {
 		
 		return "member/IdOrName";
 	}
+	@RequestMapping(value="select.com")
+	public String select(String option) {
+		System.out.println(option);
+		return "redirect:/";
+		
+	}
+	@RequestMapping(value="searchMember3Frm.com")
+	public String searchMemberFrm(Model model) {
+		ArrayList<Member> list = service.searchMember();
+		model.addAttribute("list",list);
+	return "member/searchMember";
+	}
+	@RequestMapping(value="searchMembers.com")
+	public String searchMembers(String[] memberId,Model model) {
+		
+		ArrayList<Member> list = service.getMemberList(memberId);
+		model.addAttribute("list",list);
+		return "member/searchMembers";
+	}
 	
 }

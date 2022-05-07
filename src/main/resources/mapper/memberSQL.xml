@@ -62,4 +62,30 @@
 			
 	
 	</select>
+	<select id="searchMembers" resultType="m">
+		select 
+			member_no as memberNo,
+			member_id as memberId,
+			member_pw as memberPw,
+			member_name as memberName,
+			phone,
+			email
+		from member_tbl	
+	</select>
+	<select id="getMemberList" parameterType="map" resultType="m">
+		select 
+			member_no as memberNo,
+			member_id as memberId,
+			member_pw as memberPw,
+			member_name as memberName,
+			phone,
+			email
+		from member_tbl
+		<if test="array != null">
+			where member_id in
+			<foreach collection="array" item="memberId" open="(" close=")" separator=",">
+				#{memberId}
+			</foreach>
+		</if>	
+	</select>
 </mapper>

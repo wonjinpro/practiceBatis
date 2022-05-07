@@ -53,4 +53,16 @@ public class MemberDao {
 		List list = sqlSession.selectList("member.idOrName",map);
 		return (ArrayList<Member>) list;
 	}
+
+	public ArrayList<Member> searchMember() {
+		
+		List list = sqlSession.selectList("member.searchMembers");
+		return (ArrayList<Member>) list;
+	}
+
+	public ArrayList<Member> getMemberList(String[] memberId) {
+		
+		List list = sqlSession.selectList("member.getMemberList",memberId);
+		return (ArrayList<Member>)list  ;
+	}
 }

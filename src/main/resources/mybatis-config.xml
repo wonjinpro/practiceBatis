@@ -6,5 +6,7 @@
 	</settings>
 	<typeAliases>
 		<typeAlias type="com.wonjin.memberVo.Member" alias="m"/>
+		<typeAlias type="com.wonjin.board.vo.Board" alias="b"/>
+		<typeAlias type="com.wonjin.board.vo.FileVO" alias="f"/> 
 	</typeAliases>
 </configuration>
