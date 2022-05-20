@@ -41,5 +41,5 @@
 		<filter-name>characterEncoding</filter-name>
 		<url-pattern>*.com</url-pattern>
 	</filter-mapping>
-
+	
 </web-app>

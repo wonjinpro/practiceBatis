@@ -35,7 +35,7 @@
 			<h1>[${sessionScope.m.memberName }]님 환영합니다</h1>
 			<div><a href="logoutForm.com">로그아웃</a></div>
 			<div><a href="mypageFrm.com">마이페이지</a></div>
-			
+			<h2><a href="boardList.com?reqPage=1">게시판 글 보기</a></h2>
 			
 		</c:otherwise>
 	</c:choose>
@@ -54,7 +54,7 @@
 			<button type="submit">키워드로 검색하기</button>
 		</span>
 	</form>
-	<h2><a href="boardList.com?reqPage=1">게시판 글 보기</a></h2>
+	
 	
 	<h3>아이디나 이름으로 조회하기</h3>
 	<form action="idOrName.com">

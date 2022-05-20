@@ -32,5 +32,11 @@
   	</update>
   	<delete id="deleteBoard" parameterType="int">
   		delete from board where board_no=#{boardNo}
-  	</delete>
+  	</delete> 
+  	<insert id="insertBoard" parameterType="b">
+		insert into board values(board_seq.nextval,#{boardTitle},#{boardContent},#{boardWriter},to_char(sysdate,'yy-mm-dd'))
+		<selectKey resultType="int" order="AFTER" keyProperty="boardNo">
+			select max(board_no) from board
+		</selectKey>
+	</insert>
 </mapper>

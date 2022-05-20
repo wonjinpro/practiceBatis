@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.wonjin.board.vo.Board;
+import com.wonjin.board.vo.FileVO;
 
 @Repository
 public class BoardDao {
@@ -43,5 +44,17 @@ public class BoardDao {
 		int result= sqlSession.delete("board.deleteBoard",boardNo);
 		return result;
 	}
+
+	public int insetBoard(Board b) {
+		
+		int boardNo = sqlSession.insert("board.insertBoard", b); 
+		return boardNo;
+	}
+
+	
+
+	
+
+	
 	
 }
